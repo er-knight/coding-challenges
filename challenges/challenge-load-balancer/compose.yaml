@@ -5,20 +5,34 @@ services:
   load-balancer:
     build:
       context: .
-      dockerfile: Dockerfile.load-balancer
+      dockerfile: load-balancer.Dockerfile
     ports:
       - 8000:8000
 
   server-1:
     build:
       context: .
-      dockerfile: Dockerfile.server
+      dockerfile: server.Dockerfile
     environment:
       - SERVER_ID=1
 
   server-2:
     build:
       context: .
-      dockerfile: Dockerfile.server
+      dockerfile: server.Dockerfile
     environment:
       - SERVER_ID=2
+
+  server-3:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    environment:
+      - SERVER_ID=3
+
+  server-4:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    environment:
+      - SERVER_ID=4
