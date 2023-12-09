@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  load-balancer:
+    build:
+      context: .
+      dockerfile: Dockerfile.load-balancer
+    ports:
+      - 8000:8000
+
+  server-1:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    environment:
+      - SERVER_ID=1
+
+  server-2:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    environment:
+      - SERVER_ID=2
