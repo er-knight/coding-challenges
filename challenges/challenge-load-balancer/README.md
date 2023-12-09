@@ -1,12 +1,12 @@
 # The Challenge - Building a Load Balancer
 
-A load balancer performs the following functions:
+**A load balancer performs the following functions:**
 - Distributes client requests/network load efficiently across multiple servers
 - Ensures high availability and reliability by sending requests only to servers that are online
 - Provides the flexibility to add or subtract servers as demand dictates
 - Therefore our goals for this project are to:
 
-Build a load balancer that can send traffic to two or more servers.
+**Build a load balancer that can send traffic to two or more servers.**
 - Health check the servers.
 - Handle a server going offline (failing a health check).
 - Handle a server coming back online (passing a health check).
@@ -16,11 +16,12 @@ Build a load balancer that can send traffic to two or more servers.
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ## Setup
-After successful installation of [Docker Desktop](https://docs.docker.com/desktop/)/[Docker Engine](https://docs.docker.com/engine/) and [Docker Compose](https://docs.docker.com/compose/) run following command to start `Load Balancer`, `Server 1` and `Server 2` together.
+- Install Docker Desktop/Docker Engine and Docker Compose.
+- Start Load Balancer and Servers.
 
-```sh
-docker compose up
-```
+  ```sh
+  docker compose up
+  ```
 
 ## Examples
 
