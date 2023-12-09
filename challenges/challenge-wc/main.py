@@ -3,28 +3,41 @@ import argparse
 
 from pathlib import Path
 
+
 def main():
 
     parser = argparse.ArgumentParser(
-        prog='python main.py', 
-        description='Print newline, word, and byte counts for each FILE,' 
-                    ' and a total line if more than one FILE is specified.'
-                    ' A word is a non-zero-length sequence of characters'
-                    'delimited by white space.'
+        prog='python main.py',
+        description=(
+            'Print newline, word, and byte counts for each FILE,'
+            ' and a total line if more than one FILE is specified.'
+            ' A word is a non-zero-length sequence of characters'
+            'delimited by white space.'
+        )
     )
-    parser.add_argument('-c', '--bytes', action='store_true', help='print the byte counts')
-    parser.add_argument('-m', '--chars', action='store_true', help='print the character counts')
-    parser.add_argument('-l', '--lines', action='store_true', help='print the newline counts')
-    parser.add_argument('-w', '--words', action='store_true', help='print the word counts')
-    parser.add_argument('FILE', action='store')
+    parser.add_argument('-c', '--bytes', action='store_true',
+                        help='print the byte counts')
+    parser.add_argument('-m', '--chars', action='store_true',
+                        help='print the character counts')
+    parser.add_argument('-l', '--lines', action='store_true',
+                        help='print the newline counts')
+    parser.add_argument('-w', '--words', action='store_true',
+                        help='print the word counts')
+    parser.add_argument('FILE', nargs='?', action='store')
 
     args = parser.parse_args()
 
-    file_to_read = Path().cwd() / args.FILE
-    chars = words = newlines = bytes_count = 0 
-    with file_to_read.open('rb') as f:
-        _bytes = f.read()
+    chars = words = newlines = bytes_count = 0
+
+    if not args.FILE and not sys.stdin.isatty():
+        args.FILE = ''
+        _bytes = sys.stdin.buffer.read()
         bytes_count = len(_bytes)
+    else:
+        file_to_read = Path().cwd() / args.FILE
+        with file_to_read.open('rb') as f:
+            _bytes = f.read()
+            bytes_count = len(_bytes)
 
     prev_char = ''
     for char in _bytes.decode():
@@ -59,6 +72,7 @@ def main():
     output = [str(i).rjust(width) for i in output]
 
     print(*output, args.FILE)
+
 
 if __name__ == '__main__':
 
