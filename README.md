@@ -3,8 +3,8 @@
 
 ---
 
-- [x] [Write Your Own `wc` Tool](https://codingchallenges.fyi/challenges/challenge-wc)
-- [ ] [Write Your Own JSON Parser](https://codingchallenges.fyi/challenges/challenge-json-parser)
-- [x] [Write Your Own Compression Tool](https://codingchallenges.fyi/challenges/challenge-huffman)
-- [ ] [Write Your Own `cut` Tool](https://codingchallenges.fyi/challenges/challenge-cut)
-- [ ] [Write You Own Load Balancer](https://codingchallenges.fyi/challenges/challenge-load-balancer)
+- [x] [Write Your Own `wc` Tool](/challenges/challenge-wc)
+- [ ] Write Your Own JSON Parser
+- [x] [Write Your Own Compression Tool](/challenges/challenge-huffman)
+- [ ] Write Your Own `cut` Tool
+- [ ] [Write You Own Load Balancer](/challenges/challenge-load-balancer)
